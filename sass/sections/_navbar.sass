@@ -1,9 +1,14 @@
 .navbar
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    background-color: #ffffff
     &-wrap
         display: flex
         align-items: center 
         justify-content: space-between
-        min-height: 80px
+        min-height: 60px
     &__mobail, &__landline
         text-align: right
     &__phone
@@ -19,6 +24,28 @@
         text-decoration: none
         color: $text-color-light
 .menu
+    position: fixed
+    z-index: 0
+    width: 100%
+    top: 80px
+    left: 0
+    padding: 16px 0
+    background: $primary
+    transition: 0.2s
+    opacity: 0
+    transform: translateY(-200%)
+    &__active
+        opacity: 1
+        transform: translateY(0)
+    &__nav
+        display: flex
+        align-items: center
+        justify-content: space-around
+    &__link
+        font-size: 17px
+        text-decoration: none
+        text-transform: uppercase
+        color: #ffffff
     &-button
         display: flex
         flex-direction: column
@@ -47,4 +74,20 @@
         display: block
         font-size: 14px
         color: $text-color-light
-        
+
+@media (max-width: 991px)
+    .navbar
+        &__mobail, &__landline
+            display: none
+
+@media (max-width: 576px)
+    .logo
+        display: none
+    .menu
+        top: 60px
+        &-button
+            height: 60px
+        &__nav
+            flex-direction: column
+        &__link
+            margin-bottom: 20px
